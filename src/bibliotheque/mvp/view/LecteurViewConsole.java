@@ -59,6 +59,27 @@ public class LecteurViewConsole implements LecteurViewInterface {
 
     private void modifier() {
         //TODO choisir elt et demander les nouvelles valeurs puis appeler méthode maj(lecteur) (à développer) du presenter
+        int choix = Utilitaire.choixElt(llec);
+        Lecteur lecteur = llec.get(choix-1);
+        System.out.println("nom ");
+        String nom = sc.nextLine();
+        System.out.println("prénom ");
+        String prenom = sc.nextLine();
+        System.out.println("date de naissance");
+        String[] jma = sc.nextLine().split(" ");
+        int j = Integer.parseInt(jma[0]);
+        int m = Integer.parseInt(jma[1]);
+        int a = Integer.parseInt(jma[2]);
+        LocalDate dn = LocalDate.of(a, m, j);
+        System.out.println("adresse");
+        String adr = sc.nextLine();
+        System.out.println("mail");
+        String mail = sc.nextLine();
+        System.out.println("tel ");
+        String tel = sc.nextLine();
+
+
+
 
     }
 
