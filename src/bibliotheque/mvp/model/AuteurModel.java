@@ -1,7 +1,6 @@
 package bibliotheque.mvp.model;
 
 import bibliotheque.metier.Auteur;
-import bibliotheque.metier.Lecteur;
 
 import java.util.ArrayList;
 import java.util.HashSet;
