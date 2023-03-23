@@ -32,5 +32,14 @@ public class LecteurModel implements DAOLecteur {
     public List<Lecteur> getLecteurs() {
         return new ArrayList<>(lecteurs);
     }
+
+    @Override
+    public Lecteur updateLecteur(Lecteur lecteur) {
+        //int idLecteur = lecteur.getNumlecteur();
+        int p = lecteurs.indexOf(lecteur);
+        if (p < 0) return null;
+        lecteurs.set(p, lecteur);//remplacement du lecteur à la même position
+        return lecteur;
+    }
 }
 

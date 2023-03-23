@@ -10,6 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static bibliotheque.utilitaires.Utilitaire.*;
+import static bibliotheque.utilitaires.Utilitaire.modifyIfNotBlank;
+
 public class LecteurViewConsole implements LecteurViewInterface {
     private LecteurPresenter presenter;
     private List<Lecteur> llec;
@@ -58,25 +61,23 @@ public class LecteurViewConsole implements LecteurViewInterface {
     }
 
     private void modifier() {
-        //TODO choisir elt et demander les nouvelles valeurs puis appeler méthode maj(lecteur) (à développer) du presenter
-        int choix = Utilitaire.choixElt(llec);
-        Lecteur lecteur = llec.get(choix-1);
-        System.out.println("nom ");
-        String nom = sc.nextLine();
-        System.out.println("prénom ");
-        String prenom = sc.nextLine();
-        System.out.println("date de naissance");
-        String[] jma = sc.nextLine().split(" ");
+        int choix = choixElt(llec);
+        Lecteur l = llec.get(choix-1);
+        String nom = modifyIfNotBlank("nom",l.getNom());
+        String prenom = modifyIfNotBlank("prénom",l.getPrenom());
+        String date = modifyIfNotBlank("date de naissance",getDateFrench(l.getDn()));
+        String[] jma = date.split(" ");
         int j = Integer.parseInt(jma[0]);
         int m = Integer.parseInt(jma[1]);
         int a = Integer.parseInt(jma[2]);
         LocalDate dn = LocalDate.of(a, m, j);
-        System.out.println("adresse");
-        String adr = sc.nextLine();
-        System.out.println("mail");
-        String mail = sc.nextLine();
-        System.out.println("tel ");
-        String tel = sc.nextLine();
+        String adr = modifyIfNotBlank("adresse",l.getAdresse());
+        String mail= modifyIfNotBlank("mail",l.getMail());
+        String tel =modifyIfNotBlank("tel",l.getTel());
+        Lecteur lec = new Lecteur(l.getNumlecteur(), nom, prenom, dn, adr, mail, tel);
+        presenter.update(lec);
+        llec=presenter.getAll();//rafraichissement
+        Utilitaire.affListe(llec);
 
 
 

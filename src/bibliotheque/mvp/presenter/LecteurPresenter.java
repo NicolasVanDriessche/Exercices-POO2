@@ -37,4 +37,15 @@ public class LecteurPresenter {
         List<Lecteur> lecteurs = model.getLecteurs();
         view.setListDatas(lecteurs);
     }
+
+    public void update(Lecteur lecteur) {
+        Lecteur l  =model.updateLecteur(lecteur);
+        if(l==null) view.affMsg("mise à jour infrucueuse");
+        else view.affMsg("mise à jour effectuée : "+l);
+        //view.setListDatas(model.getClients());//désactivé pour éviter appels imbriqués
+    }
+
+    public List<Lecteur> getAll(){
+        return model.getLecteurs();
+    }
 }
