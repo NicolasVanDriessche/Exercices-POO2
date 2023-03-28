@@ -1,9 +1,7 @@
 package bibliotheque.mvp.view;
 
 import bibliotheque.metier.Auteur;
-import bibliotheque.metier.Lecteur;
 import bibliotheque.mvp.presenter.AuteurPresenter;
-import bibliotheque.mvp.presenter.LecteurPresenter;
 import bibliotheque.utilitaires.Utilitaire;
 
 import java.util.ArrayList;

@@ -13,4 +13,6 @@ public interface DAOLecteur {
     List<Lecteur> getLecteurs();
 
     Lecteur updateLecteur(Lecteur lecteur);
+
+    Lecteur readLecteur(int idLecteur);
 }

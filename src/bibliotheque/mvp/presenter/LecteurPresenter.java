@@ -1,7 +1,9 @@
 package bibliotheque.mvp.presenter;
 
+import bibliotheque.metier.Exemplaire;
 import bibliotheque.metier.Lecteur;
 import bibliotheque.mvp.model.DAOLecteur;
+import bibliotheque.mvp.model.SpecialLecteur;
 import bibliotheque.mvp.view.LecteurViewInterface;
 
 import java.util.List;
@@ -47,5 +49,22 @@ public class LecteurPresenter {
 
     public List<Lecteur> getAll(){
         return model.getLecteurs();
+    }
+
+    public void search(int idLecteur) {
+        Lecteur l = model.readLecteur(idLecteur);
+        if(l==null) view.affMsg("recherche infructueuse");
+        else view.affMsg(l.toString());
+    }
+
+    public void exemplairesEnLocation(Lecteur l) {
+        List<Exemplaire> lex =   ((SpecialLecteur)model).exemplairesEnLocation(l);
+        if(lex==null || lex.isEmpty()) view.affMsg("aucun exemplaire trouvé");
+        else view.affList(lex);
+    }
+    public void exemplairesLoues(Lecteur l) {
+        List<Exemplaire> lex =   ((SpecialLecteur)model).exemplairesLoues(l);
+        if(lex==null || lex.isEmpty()) view.affMsg("aucun exemplaire trouvé");
+        else view.affList(lex);
     }
 }

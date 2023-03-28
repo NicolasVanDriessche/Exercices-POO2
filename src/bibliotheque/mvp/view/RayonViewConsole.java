@@ -1,7 +1,6 @@
 package bibliotheque.mvp.view;
 
 
-import bibliotheque.metier.Auteur;
 import bibliotheque.metier.Rayon;
 import bibliotheque.mvp.presenter.RayonPresenter;
 import bibliotheque.utilitaires.Utilitaire;
