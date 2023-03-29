@@ -1,5 +1,6 @@
 package bibliotheque.mvp.presenter;
 
+import bibliotheque.metier.Lecteur;
 import bibliotheque.metier.Rayon;
 import bibliotheque.mvp.model.DAORayon;
 import bibliotheque.mvp.view.RayonViewInterface;
@@ -36,5 +37,16 @@ public class RayonPresenter {
         else view.affMsg("rayon non effacé");
         List<Rayon> rayons = model.getRayons();
         view.setListDatas(rayons);
+    }
+
+    public void update(Rayon rayon) {
+        Rayon r  =model.updateRayon(rayon);
+        if(r==null) view.affMsg("mise à jour infrucueuse");
+        else view.affMsg("mise à jour effectuée : "+r);
+        //view.setListDatas(model.getClients());//désactivé pour éviter appels imbriqués
+    }
+
+    public List<Rayon> getAll(){
+        return model.getRayons();
     }
 }

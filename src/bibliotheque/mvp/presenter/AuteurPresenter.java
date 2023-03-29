@@ -40,4 +40,14 @@ public class AuteurPresenter {
         view.setListDatas(auteurs);
     }
 
+    public void update(Auteur auteur) {
+        Auteur a  =model.updateAuteur(auteur);
+        if(a==null) view.affMsg("mise à jour infrucueuse");
+        else view.affMsg("mise à jour effectuée : "+a);
+        //view.setListDatas(model.getClients());//désactivé pour éviter appels imbriqués
+    }
+    public List<Auteur> getAll(){
+        return model.getAuteurs();
+    }
+
 }

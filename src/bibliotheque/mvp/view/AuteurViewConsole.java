@@ -75,6 +75,15 @@ public class AuteurViewConsole implements AuteurViewInterface {
     }
 
     public void modifier(){
-
+        System.out.println("nom ");
+        String nom = sc.nextLine();
+        System.out.println("prénom ");
+        String prenom = sc.nextLine();
+        System.out.println("nationalité ");
+        String nationalite = sc.nextLine();
+        Auteur au = new Auteur(nom, prenom, nationalite);
+        presenter.update(au);
+        laut=presenter.getAll();//rafraichissement
+        Utilitaire.affListe(laut);
     }
 }

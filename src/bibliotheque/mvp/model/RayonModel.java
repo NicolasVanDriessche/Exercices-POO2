@@ -1,5 +1,6 @@
 package bibliotheque.mvp.model;
 
+import bibliotheque.metier.Lecteur;
 import bibliotheque.metier.Rayon;
 
 import java.util.ArrayList;
@@ -26,5 +27,14 @@ public class RayonModel implements DAORayon {
     @Override
     public List<Rayon> getRayons() {
         return new ArrayList<>(rayons);
+    }
+
+    @Override
+    public Rayon updateRayon(Rayon rayon) {
+        //int idLecteur = lecteur.getNumlecteur();
+        int p = rayons.indexOf(rayon);
+        if (p < 0) return null;
+        rayons.set(p, rayon);//remplacement du lecteur à la même position
+        return rayon;
     }
 }

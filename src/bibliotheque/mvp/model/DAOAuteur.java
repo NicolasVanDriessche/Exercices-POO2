@@ -11,4 +11,6 @@ public interface DAOAuteur {
     boolean removeAuteur(Auteur au);
 
     List<Auteur> getAuteurs();
+
+    Auteur updateAuteur(Auteur auteur);
 }

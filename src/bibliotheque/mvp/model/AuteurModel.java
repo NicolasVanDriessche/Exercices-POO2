@@ -31,5 +31,14 @@ public class AuteurModel implements DAOAuteur {
         return new ArrayList<>(auteurs);
     }
 
+    @Override
+    public Auteur updateAuteur(Auteur auteur) {
+        //int idLecteur = lecteur.getNumlecteur();
+        int p = auteurs.indexOf(auteur);
+        if (p < 0) return null;
+        auteurs.set(p, auteur);//remplacement du lecteur à la même position
+        return auteur;
+    }
+
 
 }

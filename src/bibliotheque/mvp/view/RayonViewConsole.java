@@ -74,6 +74,13 @@ public class RayonViewConsole implements RayonViewInterface{
     }
 
     public void modifier(){
-
+        System.out.println("coderayon ");
+        String coderayon = sc.nextLine();
+        System.out.println("genre ");
+        String genre = sc.nextLine();
+        Rayon ray = new Rayon(coderayon, genre);
+        presenter.update(ray);
+        lray=presenter.getAll();//rafraichissement
+        Utilitaire.affListe(lray);
     }
 }
