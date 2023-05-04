@@ -21,16 +21,17 @@ public class Utilitaire {
     }
 
     public static int choixElt(List l){
-        int choix;
-        do {
-            System.out.println("choix :");
-            choix = sc.nextInt();
-            sc.skip("\n");
-        } while(choix <1 || choix > l.size());
-        return choix;
+            int choix;
+            do {
+                System.out.println("choix :");
+                choix = sc.nextInt();
+                sc.skip("\n");
+            } while(choix <1 || choix > l.size());
+            return choix;
     }
 
     public static LocalDate lecDate(){
+
         String[] jma = sc.nextLine().split(" ");
         int j = Integer.parseInt(jma[0]);
         int m = Integer.parseInt(jma[1]);
